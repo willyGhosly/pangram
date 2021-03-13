@@ -12,7 +12,7 @@ function isPangram(string){
   // alphabet
   const abc = 'abcdefghijklmnopqrstuvwxyz';
   // we change string for array, remove spaces and place in lowercase
-  let str = Array.from(string.split(' ').join('').toLowerCase());
+  let str = Array.from(string.split(/[0-9\s.,\/#!$%\^&\*;:{}=\-_`~()”“"…]/).join('').toLowerCase());
   // removing duplicates
   let removingDuplicates = str.filter((item, index) => {
   	return str.indexOf(item) === index;
