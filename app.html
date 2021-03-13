@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>is Pangram</title>
+</head>
+<body>
+	<script>
+
+function isPangram(string){
+  // alphabet
+  const abc = 'abcdefghijklmnopqrstuvwxyz';
+  // we change string for array, remove spaces and place in lowercase
+  let str = Array.from(string.split(' ').join('').toLowerCase());
+  // removing duplicates
+  let removingDuplicates = str.filter((item, index) => {
+  	return str.indexOf(item) === index;
+  })
+  // we organize array, remove commas and convert to string
+  let sort  = removingDuplicates.sort(),
+  	toStr = sort.join('').toString();
+  // we check if it is a pangram or not
+  if (toStr === abc) return true;
+  return false;
+}
+
+// Check pangram
+console.log(isPangram("The quick brown fox jumps over the lazy dog"));
+console.log(isPangram("This is not a pangram"));
+
+	</script>
+</body>
+</html>
